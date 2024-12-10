@@ -1,46 +1,21 @@
 public abstract class Soldado {
-    protected String nombre;
     protected int nivelVida;
-    protected int nivelAtaque;
-    protected int nivelDefensa;
-    protected int fila;
-    protected int columna;
+    protected int ataque;
+    protected int defensa;
+    protected String nombre;
 
-    public Soldado(String nombre, int nivelVida, int nivelAtaque, int nivelDefensa) {
+    public Soldado(String nombre, int nivelVida, int ataque, int defensa) {
         this.nombre = nombre;
         this.nivelVida = nivelVida;
-        this.nivelAtaque = nivelAtaque;
-        this.nivelDefensa = nivelDefensa;
-    }
-
-    public abstract void realizarAccionEspecial();
-
-    public String getNombre() {
-        return nombre;
+        this.ataque = ataque;
+        this.defensa = defensa;
     }
 
     public int getNivelVida() {
         return nivelVida;
     }
 
-    public void setNivelVida(int nivelVida) {
-        this.nivelVida = nivelVida;
-    }
-
-    public int getFila() {
-        return fila;
-    }
-
-    public int getColumna() {
-        return columna;
-    }
-
-    public void setPosicion(int fila, int columna) {
-        this.fila = fila;
-        this.columna = columna;
-    }
-
-    public int calcularPoder() {
-        return nivelVida + nivelAtaque + nivelDefensa;
+    public String getRepresentacion() {
+        return nombre.charAt(0) + "";
     }
 }

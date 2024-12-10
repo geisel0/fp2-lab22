@@ -1,36 +1,25 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class Ejercito {
     private String reino;
-    private List<Soldado> soldados;
+    private ArrayList<Soldado> soldados;
 
-    public Ejercito(String reino) {
+    public Ejercito(String reino, Tablero tablero, String tipoTerritorio) {
         this.reino = reino;
         this.soldados = new ArrayList<>();
+        generarSoldados(tablero, tipoTerritorio);
     }
 
-    public void agregarSoldado(Soldado soldado) {
-        soldados.add(soldado);
+    private void generarSoldados(Tablero tablero, String tipoTerritorio) {
+        // Generar soldados aleatorios y colocarlos en el tablero
     }
 
-    public List<Soldado> getSoldados() {
-        return soldados;
+    public boolean estaVacio() {
+        return soldados.isEmpty();
     }
 
     public String getReino() {
         return reino;
     }
-
-    public int calcularPoderTotal() {
-        return soldados.stream().mapToInt(Soldado::calcularPoder).sum();
-    }
-
-    public double calcularPromedioVida() {
-        return soldados.stream().mapToInt(Soldado::getNivelVida).average().orElse(0);
-    }
-
-    public int contarSoldadosPorTipo(Class<?> tipo) {
-        return (int) soldados.stream().filter(tipo::isInstance).count();
-    }
 }
+
